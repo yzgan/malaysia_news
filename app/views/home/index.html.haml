@@ -1,16 +1,16 @@
-- pictures = []
-- 9.times { pictures << Faker::LoremFlickr.image }
 .row
-  - pictures.each do |picture|
+  - @articles.each do |article|
     .col.s12.m4
       .card
         .card-image
           -# %img{:src => "images/sample-1.jpg"}/
-          = image_tag picture
-          %span.card-title Card Title
+          = image_tag article.url_to_image || 'https://picsum.photos/200/?random&blur'
+          %span.card-title= article.title 
         .card-content
           %p
-            I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.
+            = article.description || 'No content'
+        .card-content
+          %p
+            = article.content
         .card-action
-          %a{:href => "#"} This is a link
+          = link_to 'Source', article.url
