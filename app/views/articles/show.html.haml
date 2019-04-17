@@ -1,0 +1,28 @@
+%p#notice= notice
+%p
+  %strong Author:
+  = @article.author
+%p
+  %strong Title:
+  = @article.title
+%p
+  %strong Description:
+  = @article.description
+%p
+  %strong Url:
+  = @article.url
+%p
+  %strong Url to image:
+  = @article.url_to_image
+%p
+  %strong Published at:
+  = @article.published_at
+%p
+  %strong Content:
+  = @article.content
+%p
+  %strong Search:
+  = @article.search
+= link_to 'Edit', edit_article_path(@article)
+|
+= link_to 'Back', articles_path

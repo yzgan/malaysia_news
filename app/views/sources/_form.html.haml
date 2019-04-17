@@ -1,0 +1,17 @@
+= form_with(model: source, local: true) do |form|
+  - if source.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(source.errors.count, "error")
+        prohibited this source from being saved:
+      %ul
+        - source.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :source_id
+    = form.text_field :source_id
+  .field
+    = form.label :name
+    = form.text_field :name
+  .actions
+    = form.submit
