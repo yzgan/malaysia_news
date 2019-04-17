@@ -1,3 +1,5 @@
 class Source < ApplicationRecord
-  has_many :article, dependent: :nullify
+  has_many :articles, dependent: :nullify
+
+  validates :name, uniqueness: true
 end
