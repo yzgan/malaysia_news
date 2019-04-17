@@ -4,3 +4,7 @@ $secondary-color: color("yellow", "base") !default;
 @import "materialize";
 @import "material_icons";
 @import "font-awesome";
+
+#brand-logo {
+  padding: 0 15px;
+}

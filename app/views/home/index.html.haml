@@ -1,0 +1,16 @@
+- pictures = []
+- 9.times { pictures << Faker::LoremFlickr.image }
+.row
+  - pictures.each do |picture|
+    .col.s12.m4
+      .card
+        .card-image
+          -# %img{:src => "images/sample-1.jpg"}/
+          = image_tag picture
+          %span.card-title Card Title
+        .card-content
+          %p
+            I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively.
+        .card-action
+          %a{:href => "#"} This is a link
