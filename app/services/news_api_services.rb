@@ -15,7 +15,7 @@ class NewsApiServices < ApiServices
 
   private
 
-  def top_headlines_uri
-    BASE_URI + 'top-headlines'
-  end
+    def top_headlines_uri
+      BASE_URI + 'top-headlines'
+    end
 end

@@ -71,4 +71,6 @@ gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'httparty'
-gem 'rubocop'
+gem 'rubocop', '~> 0.67.2', require: false
+gem 'rubocop-rails'
+gem 'rubocop-performance'
