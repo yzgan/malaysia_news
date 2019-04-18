@@ -1,4 +1,6 @@
 class NewsApiServices < ApiServices
+  class NewsApiError < StandardError; end
+
   BASE_URI = 'https://newsapi.org/v2/'.freeze
 
   attr_reader :top_headlines_uri
@@ -10,7 +12,9 @@ class NewsApiServices < ApiServices
   end
 
   def top_headlines
-    get top_headlines_uri, country: 'my'
+    response = get top_headlines_uri, country: 'my'
+    raise NewsApiError, response.dig('message') if response.dig('status') == 'error'
+    response
   end
 
   private
