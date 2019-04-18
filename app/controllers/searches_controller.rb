@@ -37,6 +37,16 @@ class SearchesController < ApplicationController
     end
   end
 
+  def import
+    data = NewsApiServices.new.top_headlines
+
+    if ImportFromExternal.run(type: :top_headlines, data: data.with_indifferent_access)
+      redirect_to root_path, notice: 'Successfully imported!'
+    else
+      redirect_to searches_path, notice: 'Something went wrong! #{outcome.errors.full_messages}'
+    end
+  end
+
   # PATCH/PUT /searches/1
   # PATCH/PUT /searches/1.json
   def update

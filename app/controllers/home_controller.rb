@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.all.order(created_at: :desc).decorate
   end
 
   def top_headlines

@@ -5,6 +5,6 @@ class Article < ApplicationRecord
   validates :title, presence: true, uniqueness: true
 
   def recent?
-    Time.current - created_at < 2.hour
+    Time.current - created_at < 2.hours
   end
 end
