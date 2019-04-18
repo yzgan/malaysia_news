@@ -75,3 +75,4 @@ gem 'rubocop', '~> 0.67.2', require: false
 gem 'rubocop-rails'
 gem 'rubocop-performance'
 gem 'active_interaction', '~> 3.7'
+gem 'news-api'

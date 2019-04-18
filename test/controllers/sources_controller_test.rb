@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class SourcesControllerTest < ActionDispatch::IntegrationTest
+class ResourcesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @source = sources(:one)
+    @resource = resources(:one)
   end
 
   test "should get index" do
-    get sources_url
+    get resources_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_source_url
+    get new_resource_url
     assert_response :success
   end
 
   test "should create source" do
-    assert_difference('Source.count') do
-      post sources_url, params: { source: { name: @source.name, source_id: @source.source_id } }
+    assert_difference('Resource.count') do
+      post resources_url, params: { source: { name: @resource.name, source_id: @resource.source_id } }
     end
 
-    assert_redirected_to source_url(Source.last)
+    assert_redirected_to resource_url(Resource.last)
   end
 
   test "should show source" do
-    get source_url(@source)
+    get resource_url(@resource)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_source_url(@source)
+    get edit_resource_url(@resource)
     assert_response :success
   end
 
   test "should update source" do
-    patch source_url(@source), params: { source: { name: @source.name, source_id: @source.source_id } }
-    assert_redirected_to source_url(@source)
+    patch resource_url(@resource), params: { source: { name: @resource.name, source_id: @resource.source_id } }
+    assert_redirected_to resource_url(@resource)
   end
 
   test "should destroy source" do
-    assert_difference('Source.count', -1) do
-      delete source_url(@source)
+    assert_difference('Resource.count', -1) do
+      delete resource_url(@resource)
     end
 
-    assert_redirected_to sources_url
+    assert_redirected_to resources_url
   end
 end

@@ -20,13 +20,13 @@ class ImportFromExternal < ActiveInteraction::Base
     def import_to_article_database
       Article.transaction do
         data_articles.map do |data_article|
-          source_data = data_article.delete(:source)
-          source = Source.find_or_create_by(name: source_data.dig(:name)) do |record|
-            record.source_id = source_data.dig(:id)
+          resource_data = data_article.delete(:source)
+          resource = Resource.find_or_create_by(name: resource_data.dig(:name)) do |record|
+            record.source_id = resource_data.dig(:id)
           end
           article_params = data_article.transform_keys(&:underscore).transform_keys(&:to_sym)
 
-          Article.create(article_params.merge(search: search, source: source))
+          Article.create(article_params.merge(search: search, resource: resource))
         end
       end
     end

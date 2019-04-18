@@ -20,7 +20,7 @@ Layout/EmptyLinesAroundAccessModifier:
   Exclude:
     - 'app/controllers/articles_controller.rb'
     - 'app/controllers/searches_controller.rb'
-    - 'app/controllers/sources_controller.rb'
+    - 'app/controllers/resources_controller.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -46,7 +46,7 @@ Layout/IndentationConsistency:
   Exclude:
     - 'app/controllers/articles_controller.rb'
     - 'app/controllers/searches_controller.rb'
-    - 'app/controllers/sources_controller.rb'
+    - 'app/controllers/resources_controller.rb'
 
 # Offense count: 6
 # Cop supports --auto-correct.
@@ -55,7 +55,7 @@ Layout/IndentationWidth:
   Exclude:
     - 'app/controllers/articles_controller.rb'
     - 'app/controllers/searches_controller.rb'
-    - 'app/controllers/sources_controller.rb'
+    - 'app/controllers/resources_controller.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -118,7 +118,7 @@ Style/EmptyMethod:
     - 'app/controllers/articles_controller.rb'
     - 'app/controllers/home_controller.rb'
     - 'app/controllers/searches_controller.rb'
-    - 'app/controllers/sources_controller.rb'
+    - 'app/controllers/resources_controller.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -175,7 +175,7 @@ Style/SymbolArray:
     - 'Gemfile'
     - 'app/controllers/articles_controller.rb'
     - 'app/controllers/searches_controller.rb'
-    - 'app/controllers/sources_controller.rb'
+    - 'app/controllers/resources_controller.rb'
 
 # Offense count: 56
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.

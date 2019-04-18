@@ -26,9 +26,16 @@ ActiveRecord::Schema.define(version: 2019_04_16_074102) do
     t.bigint "search_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "source_id"
+    t.bigint "resource_id"
+    t.index ["resource_id"], name: "index_articles_on_resource_id"
     t.index ["search_id"], name: "index_articles_on_search_id"
-    t.index ["source_id"], name: "index_articles_on_source_id"
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string "source_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "searches", force: :cascade do |t|
@@ -38,13 +45,6 @@ ActiveRecord::Schema.define(version: 2019_04_16_074102) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "sources", force: :cascade do |t|
-    t.string "source_id"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+  add_foreign_key "articles", "resources"
   add_foreign_key "articles", "searches"
-  add_foreign_key "articles", "sources"
 end

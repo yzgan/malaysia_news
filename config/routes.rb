@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
-  resources :sources
+  resources :resources
   resources :articles
   resources :searches
 
