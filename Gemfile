@@ -76,6 +76,3 @@ gem 'rubocop-rails'
 gem 'rubocop-performance'
 gem 'active_interaction', '~> 3.7'
 gem 'draper'
-
-# heroku monitoring tool
-gem 'airbrake-ruby', '~> 4.2'
