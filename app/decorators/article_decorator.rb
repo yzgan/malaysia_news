@@ -5,6 +5,6 @@ class ArticleDecorator < Draper::Decorator
 
   def recent_badge
     return unless recent?
-    content_tag :span, nil, class: 'new badge'
+    content_tag :span, nil, class: 'new badge btn-floating pulse'
   end
 end
