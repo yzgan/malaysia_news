@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @articles = Article.all.order(created_at: :desc).decorate.limit(20)
+    @articles = Article.order(created_at: :desc).page(params[:page])
   end
 
   def top_headlines

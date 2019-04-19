@@ -1,7 +1,7 @@
 .container
   .row
     .col.s12.card-column
-      - @articles.each do |article|
+      - @articles.decorate.each do |article|
         .card
           .card-image.waves-effect.waves-block.waves-light
             = image_tag article.url_to_image || 'https://picsum.photos/200/?random&blur', class: 'activator responsive-img'
@@ -18,3 +18,4 @@
               %i.material-icons.right close
               %p= article.description || 'No content'
               %p= article.content
+    .col.s12.text-center= paginate @articles, left: 1, right: 3
