@@ -7,4 +7,8 @@ class ArticleDecorator < Draper::Decorator
     return unless recent?
     content_tag :span, nil, class: 'new badge btn-floating pulse'
   end
+
+  def created_at
+    object.created_at.strftime("%A, %B %e at %I:%M%p")
+  end
 end

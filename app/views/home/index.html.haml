@@ -11,8 +11,8 @@
               = article.title
               %i.material-icons.right more_vert
           .card-action
-            %p
-              = link_to 'Source', article.url
+            %p= link_to 'Source', article.url
+            %p= article.created_at
           .card-reveal
             %span.card-title.activator.grey-text.text-darken-4
               %i.material-icons.right close
