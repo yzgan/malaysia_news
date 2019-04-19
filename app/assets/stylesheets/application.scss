@@ -3,6 +3,7 @@ $primary-color: color("blue", "darken-4") !default;
 @import "materialize";
 @import "material_icons";
 @import "font-awesome";
+@import 'home';
 
 #brand-logo {
   padding: 0 15px;

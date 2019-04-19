@@ -1,7 +1,7 @@
 .container
   .row
-    - @articles.each do |article|
-      .col.s12.m4
+    .col.s12.card-column
+      - @articles.each do |article|
         .card
           .card-image.waves-effect.waves-block.waves-light
             = image_tag article.url_to_image || 'https://picsum.photos/200/?random&blur', class: 'activator responsive-img'
