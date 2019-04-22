@@ -60,7 +60,10 @@ nav {
   transition: background-color .3s, opacity .2s, visibility 0s;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   z-index: 10;
-  background-image: url(#{asset_path("klcc.jpg")});
+  background: url(#{asset_path("klcc.jpg")}) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   height: -webkit-fill-available;
   .nav-wrapper {
@@ -82,17 +85,17 @@ nav.ed {
   padding: 100px 0;
 }
 
-nav.nav-full-header {
-  height: 100%
-}
+// nav.nav-full-header {
+//   height: 100%
+// }
 
-nav.nav-full-header .nav-header {
-  height: calc(100% - 128px)
-}
+// nav.nav-full-header .nav-header {
+//   height: calc(100% - 128px)
+// }
 
-nav.nav-full-header~.nav-categories {
-  top: -64px
-}
+// nav.nav-full-header~.nav-categories {
+//   top: -64px
+// }
 
 nav ul:not(.indicators) li.k {
   position: relative;
@@ -151,7 +154,6 @@ nav .nav-background .ea {
 nav .nav-header {
   clear: both;
   padding: 40px;
-  
 }
 
 nav .nav-header h1 {
