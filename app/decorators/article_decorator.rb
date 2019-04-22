@@ -11,4 +11,9 @@ class ArticleDecorator < Draper::Decorator
   def created_at
     object.created_at.strftime("%A, %B %e at %I:%M%p")
   end
+
+  def url_to_image
+    return unless object.valid_image_url?
+    object.url_to_image
+  end
 end

@@ -7,4 +7,8 @@ class Article < ApplicationRecord
   def recent?
     Time.current - created_at < 2.hours
   end
+
+  def valid_image_url?
+    url_to_image.match? URI.regexp(%w[http https])
+  end
 end
