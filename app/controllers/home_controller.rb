@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
-  before_action :set_year, only: %i[index]
+  before_action :set_datetime_and_year, only: %i[index]
+  before_action :set_greeting, only: %i[index]
 
   def index
     @articles = Article.order(created_at: :desc).page(params[:page])
@@ -11,7 +12,26 @@ class HomeController < ApplicationController
 
   private
 
-    def set_year
-      @year = Date.current.year
+    def set_datetime_and_year
+      @time = Time.current
+      @year = @time.year
     end
+
+    # TODO: Code refactoring
+    # rubocop:disable Metrics/MethodLength
+    def set_greeting
+      case
+      when @time < @time.beginning_of_day + 6.hours || @time >= @time.at_noon + 10.hours
+        @greeting = 'Good Night'
+      when @time < @time.at_noon
+        @greeting = 'Good Morning'
+      when @time < @time.at_noon + 6.hours
+        @greeting = 'Good Afternoon'
+      when @time < @time.at_noon + 10.hours
+        @greeting = 'Good Evening'
+      else
+        @greeting = 'Good Day'
+      end
+    end
+  # rubocop:enable Metrics/MethodLength
 end
