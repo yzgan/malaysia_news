@@ -9,6 +9,7 @@ class Article < ApplicationRecord
   end
 
   def valid_image_url?
+    return false if url_to_image.nil?
     url_to_image.match? URI.regexp(%w[http https])
   end
 end
