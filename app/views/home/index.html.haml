@@ -3,7 +3,7 @@
   .row
     .col.s12.card-column
       - @articles.decorate.each do |article|
-        .card
+        .card.sticky-action
           .card-image.waves-effect.waves-block.waves-light
             = image_tag article.url_to_image || 'https://picsum.photos/200/?random&blur', class: 'activator responsive-img'
           .card-content
@@ -16,7 +16,8 @@
             %p= article.created_at
           .card-reveal
             %span.card-title.activator.grey-text.text-darken-4
+              = article.title
               %i.material-icons.right close
-              %p= article.description || 'No content'
-              %p= article.content
+            %p= article.description || 'No Description'
+            %p= article.content || 'No content'
     .col.s12.text-center= paginate @articles, left: 1, right: 3
