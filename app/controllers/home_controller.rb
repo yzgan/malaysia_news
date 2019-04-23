@@ -29,19 +29,19 @@ class HomeController < ApplicationController
       case
       when @time < @time.beginning_of_day + 6.hours || @time >= @time.at_noon + 10.hours
         @greeting[:message] = 'Good Night'
-        @greeting[:image_url] = ActionController::Base.helpers.asset_path('klcc-night')
+        @greeting[:image] = 'klcc-night.png'
       when @time < @time.at_noon
         @greeting[:message] = 'Good Morning'
-        @greeting[:image_url] = ActionController::Base.helpers.asset_path('klcc')
+        @greeting[:image] = 'klcc.jpg'
       when @time < @time.at_noon + 6.hours
         @greeting[:message] = 'Good Afternoon'
-        @greeting[:image_url] = ActionController::Base.helpers.asset_path('klcc-day')
+        @greeting[:image] = 'klcc-day.jpg'
       when @time < @time.at_noon + 10.hours
-        @greeting[:message] = 'Good Evening'
-        @greeting[:image_url] = ActionController::Base.helpers.asset_path('klcc-evening')
+        @greeting[:message] = 'Good Evening.jpg'
+        @greeting[:image] = 'klcc-evening.jpg'
       else
         @greeting[:message] = 'Good Day'
-        @greeting[:image_url] = ActionController::Base.helpers.asset_path('klcc')
+        @greeting[:image] = 'klcc.jpg'
       end
     end
   # rubocop:enable Metrics/MethodLength

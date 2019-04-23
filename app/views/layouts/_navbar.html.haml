@@ -8,7 +8,7 @@
     .divider
 
 -# Navigation bar
-%nav.nav-extended{ style: "background-image: url(#{greeting[:image_url].to_s})" }
+%nav.nav-extended{ style: "background-image: url(#{asset_path(greeting[:image])})" }
   .nav-wrapper
     = link_to '/', class: 'brand-logo', id: 'brand-logo' do
       %i.material-icons> leak_add
