@@ -37,7 +37,7 @@ class HomeController < ApplicationController
         @greeting[:message] = 'Good Afternoon'
         @greeting[:image] = 'klcc-day.jpg'
       when @time < @time.at_noon + 10.hours
-        @greeting[:message] = 'Good Evening.jpg'
+        @greeting[:message] = 'Good Evening'
         @greeting[:image] = 'klcc-evening.jpg'
       else
         @greeting[:message] = 'Good Day'
