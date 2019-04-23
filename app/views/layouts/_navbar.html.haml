@@ -8,7 +8,7 @@
     .divider
 
 -# Navigation bar
-%nav.nav-extended
+%nav.nav-extended{ style: "background-image: url(#{greeting[:image_url].to_s})" }
   .nav-wrapper
     = link_to '/', class: 'brand-logo', id: 'brand-logo' do
       %i.material-icons> leak_add
@@ -17,7 +17,7 @@
       = content_tag(:i, 'menu', class: 'material-icons')
     %ul#nav-mobile.bt.hide-on-med-and-down
     .nav-header.center-align
-      %h1 #{greeting}, Malaysia
+      %h1 #{greeting[:message]}, Malaysia
       %p A Great start for Daily News
       = content_tag(:i, 'arrow_downward', class: 'material-icons center-block')
   
