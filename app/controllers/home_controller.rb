@@ -25,17 +25,23 @@ class HomeController < ApplicationController
     # TODO: Code refactoring
     # rubocop:disable Metrics/MethodLength
     def set_greeting
+      @greeting = {}
       case
       when @time < @time.beginning_of_day + 6.hours || @time >= @time.at_noon + 10.hours
-        @greeting = 'Good Night'
+        @greeting[:message] = 'Good Night'
+        @greeting[:image] = 'klcc-night.png'
       when @time < @time.at_noon
-        @greeting = 'Good Morning'
+        @greeting[:message] = 'Good Morning'
+        @greeting[:image] = 'klcc.jpg'
       when @time < @time.at_noon + 6.hours
-        @greeting = 'Good Afternoon'
+        @greeting[:message] = 'Good Afternoon'
+        @greeting[:image] = 'klcc-day.jpg'
       when @time < @time.at_noon + 10.hours
-        @greeting = 'Good Evening'
+        @greeting[:message] = 'Good Evening.jpg'
+        @greeting[:image] = 'klcc-evening.jpg'
       else
-        @greeting = 'Good Day'
+        @greeting[:message] = 'Good Day'
+        @greeting[:image] = 'klcc.jpg'
       end
     end
   # rubocop:enable Metrics/MethodLength
