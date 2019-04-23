@@ -1,23 +1,9 @@
 = render 'layouts/navbar', greeting: @greeting
-.container
-  .row
-    .col.s12.card-column
-      - @articles.decorate.each do |article|
-        .card.sticky-action
-          .card-image.waves-effect.waves-block.waves-light
-            = image_tag article.url_to_image || 'https://picsum.photos/200/?random&blur', class: 'activator responsive-img'
-          .card-content
-            = article.recent_badge
-            %span.card-title.activator.grey-text.text-darken-4.text-hide-me
-              = article.title
-              %i.material-icons.right more_vert
-          .card-action
-            %p= link_to 'Source', article.url
-            %p= article.created_at
-          .card-reveal
-            %span.card-title.activator.grey-text.text-darken-4
-              = article.title
-              %i.material-icons.right close
-            %p= article.description || 'No Description'
-            %p= article.content || 'No content'
-    .col.s12.text-center= paginate @articles, left: 1, right: 3
+.container#article-container
+  - if @articles.present?
+    = render 'articles', articles: @articles
+  - else
+    %p.text-center Oopps. There is no article at the moment
+    %p.text-center
+      Redirect to
+      = link_to 'all articles', root_path

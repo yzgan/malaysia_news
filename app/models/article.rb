@@ -1,4 +1,7 @@
 class Article < ApplicationRecord
+  include PgSearch
+  pg_search_scope :search_by_title, against: :title
+
   belongs_to :search
   belongs_to :resource
 

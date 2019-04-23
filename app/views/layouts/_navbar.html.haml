@@ -20,3 +20,9 @@
       %h1 #{greeting}, Malaysia
       %p A Great start for Daily News
       = content_tag(:i, 'arrow_downward', class: 'material-icons center-block')
+  
+    = form_tag({ controller: 'home', action: 'search' }, method: :get) do
+      .input-field
+        = search_field_tag 'search', nil, id: 'search', required: true, placeholder: 'Search Article Title here', class: 'text-center', maxlength: 30
+        = label_tag :search, content_tag(:i, 'search', class: 'material-icons'), class: 'label-icon'
+        %i.material-icons close

@@ -1,9 +1,14 @@
 class HomeController < ApplicationController
-  before_action :set_datetime_and_year, only: %i[index]
-  before_action :set_greeting, only: %i[index]
+  before_action :set_datetime_and_year, only: %i[index search]
+  before_action :set_greeting, only: %i[index search]
 
   def index
     @articles = Article.order(created_at: :desc).page(params[:page])
+  end
+
+  def search
+    @articles = Article.search_by_title(params[:search]).page(params[:page])
+    render :index
   end
 
   def top_headlines

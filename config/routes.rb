@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/top-headlines', to: 'home#top_headlines'
+  get 'search', to: 'home#search'
+  get 'top-headlines', to: 'home#top_headlines'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
