@@ -2,8 +2,8 @@
 %ul#slide-out.sidenav.hide-on-med
   %li
     %a{:href => "/"}
-      %i.material-icons> pie_chart
-      Articles
+      %i.material-icons> leak_add
+      News Wave
   %li
     .divider
 
@@ -11,8 +11,8 @@
 %nav.nav-extended
   .nav-wrapper
     = link_to '/', class: 'brand-logo', id: 'brand-logo' do
-      = content_tag :i, 'pie_chart', class: 'material-icons'
-      Article
+      %i.material-icons> leak_add
+      News Wave
     = link_to '#', class: ['button-collapse', 'sidenav-trigger'], data: { target: 'slide-out' } do
       = content_tag(:i, 'menu', class: 'material-icons')
     %ul#nav-mobile.bt.hide-on-med-and-down
