@@ -18,14 +18,11 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get top headlines json data' do
-    # mock top_headlines method of NewsApiServices with sample response data
     @mock.expect(:top_headlines, response_data)
-
-    # stub new method of NewsApiServices in controller with mock data
     NewsApiServices.stub(:new, @mock) do
       get top_headlines_path
     end
-    @mock.verify
+    assert @mock.verify
     assert_response :success
   end
 
