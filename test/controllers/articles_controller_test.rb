@@ -3,24 +3,12 @@ require 'test_helper'
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @article = articles(:one)
+    @article_build = build(:article)
   end
 
   test "should get index" do
     get articles_url
     assert_response :success
-  end
-
-  test "should get new" do
-    get new_article_url
-    assert_response :success
-  end
-
-  test "should create article" do
-    assert_difference('Article.count') do
-      post articles_url, params: { article: { author: @article.author, content: @article.content, description: @article.description, published_at: @article.published_at, search_id: @article.search_id, title: @article.title, url: @article.url, url_to_image: @article.url_to_image } }
-    end
-
-    assert_redirected_to article_url(Article.last)
   end
 
   test "should show article" do
@@ -34,7 +22,18 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update article" do
-    patch article_url(@article), params: { article: { author: @article.author, content: @article.content, description: @article.description, published_at: @article.published_at, search_id: @article.search_id, title: @article.title, url: @article.url, url_to_image: @article.url_to_image } }
+    patch article_url(@article), params: {
+      article: {
+        author: @article_build.author,
+        content: @article_build.content,
+        description: @article_build.description,
+        published_at: @article_build.published_at,
+        search_id: @article_build.search_id,
+        title: @article_build.title,
+        url: @article_build.url,
+        url_to_image: @article_build.url_to_image
+      }
+    }
     assert_redirected_to article_url(@article)
   end
 

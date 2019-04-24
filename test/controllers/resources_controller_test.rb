@@ -3,6 +3,7 @@ require 'test_helper'
 class ResourcesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @resource = resources(:one)
+    @resource_build = build(:resource)
   end
 
   test "should get index" do
@@ -17,10 +18,11 @@ class ResourcesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create source" do
     assert_difference('Resource.count') do
-      post resources_url, params: { source: { name: @resource.name, source_id: @resource.source_id } }
+      post resources_url, params: { resource: { name: @resource_build.name, source_id: @resource_build.source_id } }
     end
 
     assert_redirected_to resource_url(Resource.last)
+    assert_equal 'Resource was successfully created.', flash[:notice]
   end
 
   test "should show source" do
@@ -33,12 +35,12 @@ class ResourcesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should update source" do
-    patch resource_url(@resource), params: { source: { name: @resource.name, source_id: @resource.source_id } }
+  test "should update resource" do
+    patch resource_url(@resource), params: { resource: { name: @resource.name, source_id: @resource.source_id } }
     assert_redirected_to resource_url(@resource)
   end
 
-  test "should destroy source" do
+  test "should destroy resource" do
     assert_difference('Resource.count', -1) do
       delete resource_url(@resource)
     end
