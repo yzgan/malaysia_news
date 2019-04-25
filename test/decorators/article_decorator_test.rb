@@ -9,13 +9,13 @@ class ArticleDecoratorTest < Draper::TestCase
     @mock = Minitest::Mock.new
   end
 
-  test 'article recent badge' do
+  test 'recent badge' do
     assert_not_nil @article.decorate.recent_badge
     assert @article.recent?
     assert_equal @new_badge_html, @article.decorate.recent_badge
   end
 
-  test 'article created at' do
+  test 'created at' do
     @mock.expect(:strftime, true, ['%A, %B %e at %I:%M%p'])
     @article.stub(:created_at, @mock) do
       assert @article.decorate.created_at
@@ -28,5 +28,9 @@ class ArticleDecoratorTest < Draper::TestCase
     assert_match /\Ahttps?/, @article.decorate.url_to_image
     @article.url_to_image = 'invalid url'
     assert_nil @article.decorate.url_to_image
+  end
+
+  test 'tooltip' do
+    assert_match /\A<p>?.*<\/p>/im, @article.decorate.tooltip
   end
 end

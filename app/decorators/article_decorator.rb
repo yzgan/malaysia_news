@@ -16,4 +16,9 @@ class ArticleDecorator < Draper::Decorator
     return unless object.valid_image_url?
     object.url_to_image
   end
+
+  def tooltip
+    return unless description
+    content_tag :p, FormatTooltip.run!(tooltip: object.description, html: true).html_safe, class: 'left-align'
+  end
 end

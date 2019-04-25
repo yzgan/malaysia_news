@@ -2,7 +2,7 @@
   .col.s12.card-column
     - articles.decorate.each do |article|
       .card.sticky-action
-        .card-image.waves-effect.waves-block.waves-light.tooltipped{ data: { position: 'bottom',  tooltip: "#{article.description}"}  }
+        .card-image.waves-effect.waves-block.waves-light.tooltipped{ data: { position: 'bottom',  tooltip: "#{article.tooltip}"}  }
           = image_tag article.url_to_image || 'https://picsum.photos/200/?random&blur', class: 'activator responsive-img'
         .card-content
           = article.recent_badge
