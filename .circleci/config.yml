@@ -1,0 +1,90 @@
+# Ruby CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-ruby/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/ruby:2.6.2-node-browsers
+        environment:
+          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: malaysia_news_app
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      - image: circleci/postgres:9.6.9-alpine-ram
+        environment:
+          POSTGRES_USER: malaysia_news_app
+          POSTGRES_DB: malaysia_news_app_test
+          POSTGRES_PASSWORD: ""
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - run:
+          name: Which bundler?
+          command: |
+            gem install bundler
+            bundle -v
+
+      # Bundle Install dependencies
+      - restore_cache:
+          keys:
+            - malaysia-news-bundle-v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - malaysia-news-bundle-v1-dependencies-
+          paths:
+            - vendor/bundle
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install
+      - save_cache:
+          key: malaysia-news-bundle-v1-dependencies-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      # Yarn dependencies
+      - restore_cache:
+          keys:
+            - malaysia-news-yarn-{{ checksum "yarn.lock" }}
+            - malaysia-news-yarn-
+      - run:
+          name: Yarn Install
+          command: yarn install --cache-folder ~/.cache/yarn
+      - save_cache:
+          key: malaysia-news-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+      # Wait for DB
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      # Database setup
+      - run:
+          name: Database Setup
+          command: |
+            bin/rails db:setup
+
+      # run tests!
+      - run:
+          name: run tests
+          command: |
+            mkdir /tmp/test-results
+            bundle exec rake test
+
+      # collect reports
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
