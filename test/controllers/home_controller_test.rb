@@ -22,7 +22,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     NewsApiServices.stub(:new, @mock) do
       get top_headlines_path
     end
-    assert @mock.verify
+    @mock.verify
     assert_response :success
   end
 

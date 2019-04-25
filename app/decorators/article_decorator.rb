@@ -9,7 +9,7 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def created_at
-    object.created_at.strftime("%A, %B %e at %I:%M%p")
+    object.created_at.strftime('%A, %B %e at %I:%M%p')
   end
 
   def url_to_image
