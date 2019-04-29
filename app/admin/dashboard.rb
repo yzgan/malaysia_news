@@ -7,10 +7,11 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
         div do
-          br
-          text_node %{<iframe src="https://rpm.newrelic.com/public/charts/6VooNO2hKWB"
-                              width="500" height="300" scrolling="no" frameborder="no">
-                      </iframe>}.html_safe
+          # br
+          # text_node %{<iframe src="https://rpm.newrelic.com/public/charts/6VooNO2hKWB"
+          #                     width="500" height="300" scrolling="no" frameborder="no">
+          #             </iframe>}.html_safe
+          line_chart Article.group_by_day(:created_at).count
         end
       end
     end
