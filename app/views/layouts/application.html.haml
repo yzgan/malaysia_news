@@ -12,5 +12,6 @@
     = favicon_link_tag 'favicon.ico'
     
   %body
+    = render 'layouts/notification'
     = yield
     = render 'layouts/footer', year: @year
