@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'home#index'
   resources :resources
   resources :articles, only: %i[index show edit update destroy]
