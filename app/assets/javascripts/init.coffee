@@ -1,7 +1,3 @@
-
-$(document).on 'turbolinks:load', ->
-  $('.sidenav').sidenav();
-
 $(document).on 'turbolinks:before-visit turbolinks:before-cache', ->
   elem = document.querySelector('#slide-out');
   instance = M.Sidenav.getInstance(elem) if elem
