@@ -18,3 +18,6 @@
 //= require Chart.bundle
 //= require chartkick
 //= require init
+//= require home
+//= require searches
+//= require sources
