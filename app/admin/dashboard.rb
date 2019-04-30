@@ -8,7 +8,7 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel 'Article by day' do
           div do
-            column_chart Article.group_by_day(:created_at).count
+            line_chart Article.group_by_day(:created_at).count
           end
         end
       end
