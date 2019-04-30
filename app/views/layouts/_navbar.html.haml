@@ -6,6 +6,17 @@
       News Pulse
   %li
     .divider
+  %li
+    = link_to admin_root_path do
+      %i.material-icons> account_circle
+      Admin
+
+-# Dropdown 1
+%ul#dropdown1.dropdown-content
+  %li
+    = link_to 'Admin', admin_root_path
+  %li.divider
+
 
 -# Navigation bar
 %nav.nav-extended{ style: "background-image: url(#{asset_path(greeting[:image])})" }
@@ -16,6 +27,10 @@
     = link_to '#', class: ['button-collapse', 'sidenav-trigger'], data: { target: 'slide-out' } do
       = content_tag(:i, 'menu', class: 'material-icons')
     %ul#nav-mobile.bt.hide-on-med-and-down
+      %li
+        = link_to '#!', class: 'dropdown-trigger', data: { target: 'dropdown1' } do
+          Links
+          %i.material-icons.right arrow_drop_down
     .nav-header.center-align
       %h1 #{greeting[:message]}, Malaysia
       %p A Great start for Daily News
