@@ -5,6 +5,7 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/repo
     docker:
       # specify the version you desire here
       - image: circleci/ruby:2.6.2-node-browsers
@@ -24,7 +25,6 @@ jobs:
           POSTGRES_DB: malaysia_news_app_test
           POSTGRES_PASSWORD: ""
 
-    working_directory: ~/repo
 
     steps:
       - checkout
@@ -74,6 +74,58 @@ jobs:
           name: Database Setup
           command: |
             bin/rails db:setup
+  
+  test:
+    working_directory: ~/repo
+    docker:
+      # specify the version you desire here
+      - image: circleci/ruby:2.6.2-node-browsers
+        environment:
+          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: malaysia_news_app
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      - image: circleci/postgres:9.6.9-alpine-ram
+        environment:
+          POSTGRES_USER: malaysia_news_app
+          POSTGRES_DB: malaysia_news_app_test
+          POSTGRES_PASSWORD: ""
+
+
+    steps:
+      - checkout
+
+      - run:
+          name: Which bundler?
+          command: |
+            gem install bundler
+            bundle -v
+
+      # Bundle Install dependencies
+      - restore_cache:
+          keys:
+            - malaysia-news-bundle-v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - malaysia-news-bundle-v1-dependencies-
+          paths:
+            - vendor/bundle
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install --path vendor/bundle
+
+      # Yarn dependencies
+      - restore_cache:
+          keys:
+            - malaysia-news-yarn-{{ checksum "yarn.lock" }}
+            - malaysia-news-yarn-
+      - run:
+          name: Yarn Install
+          command: yarn install --cache-folder ~/.cache/yarn
 
       # run tests!
       - run:
@@ -88,3 +140,12 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
