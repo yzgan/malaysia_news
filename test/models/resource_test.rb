@@ -1,9 +1,7 @@
 require 'test_helper'
 
 class ResourceTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  include CleanableTest
 
   setup do
     @resource_build = build :resource

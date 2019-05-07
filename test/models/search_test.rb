@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class SearchTest < ActiveSupport::TestCase
+  include CleanableTest
+
   setup do
     @search_build = build :search
   end
