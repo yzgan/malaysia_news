@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ArticleTest < ActiveSupport::TestCase
+  include CleanableTest
+
   setup do
     @article_build = build :article
     @article = create :article

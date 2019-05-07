@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-  include PgSearch
+  include PgSearch, Cleanable
   pg_search_scope :search_by_title, against: :title
 
   belongs_to :search
@@ -9,6 +9,10 @@ class Article < ApplicationRecord
 
   def recent?
     Time.current - created_at < 2.hours
+  end
+
+  def self.class_name
+    self
   end
 
   def valid_image_url?

@@ -215,6 +215,9 @@ GEM
     minitest (5.11.3)
     minitest-around (0.5.0)
       minitest (~> 5.0)
+    minitest-spec-rails (5.5.0)
+      minitest (~> 5.0)
+      rails (>= 4.1)
     msgpack (1.2.9)
     multi_json (1.13.1)
     multi_xml (0.6.0)
@@ -386,6 +389,7 @@ DEPENDENCIES
   material_icons
   materialize-sass
   minitest-around
+  minitest-spec-rails
   newrelic_rpm
   pg (>= 0.18, < 2.0)
   pg_search

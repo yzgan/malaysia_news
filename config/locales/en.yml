@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+
+  cleanup:
+    invalid_argument: 'invalid argument type: should accept only ActiveSupport::Duriation input argument'
