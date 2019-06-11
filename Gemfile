@@ -86,6 +86,6 @@ gem 'kaminari'
 gem 'pg_search'
 gem 'devise'
 gem 'activeadmin'
-gem 'chartkick'
+gem "chartkick", ">= 3.2.0"
 gem 'groupdate', git: 'https://github.com/yzgan/groupdate.git', branch: 'master'
 # gem 'groupdate', path: '../groupdate'
