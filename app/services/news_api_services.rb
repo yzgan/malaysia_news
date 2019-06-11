@@ -14,12 +14,13 @@ class NewsApiServices < ApiServices
   def top_headlines
     response = get top_headlines_uri, country: 'my'
     raise NewsApiError, response.dig('message') if response.dig('status') == 'error'
+
     response
   end
 
   private
 
-    def top_headlines_uri
-      BASE_URI + 'top-headlines'
-    end
+  def top_headlines_uri
+    BASE_URI + 'top-headlines'
+  end
 end

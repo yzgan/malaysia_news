@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
-  include PgSearch, Cleanable
+  include Cleanable
+  include PgSearch
   pg_search_scope :search_by_title, against: :title
 
   belongs_to :search
@@ -17,6 +18,7 @@ class Article < ApplicationRecord
 
   def valid_image_url?
     return false if url_to_image.nil?
+
     url_to_image.match? URI.regexp(%w[http https])
   end
 end

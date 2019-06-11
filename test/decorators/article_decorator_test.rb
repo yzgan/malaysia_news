@@ -25,12 +25,12 @@ class ArticleDecoratorTest < Draper::TestCase
 
   test 'url_to_image' do
     assert @article.valid_image_url?
-    assert_match /\Ahttps?/, @article.decorate.url_to_image
+    assert_match(/\Ahttps?/, @article.decorate.url_to_image)
     @article.url_to_image = 'invalid url'
     assert_nil @article.decorate.url_to_image
   end
 
   test 'tooltip' do
-    assert_match /\A<p>?.*<\/p>/im, @article.decorate.tooltip
+    assert_match %r{\A<p>?.*</p>}im, @article.decorate.tooltip
   end
 end

@@ -75,8 +75,8 @@ gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'httparty'
-gem 'rubocop', '~> 0.67.2', require: false
-gem 'rubocop-rails'
+gem 'rubocop', '~> 0.71.0', require: false
+gem 'rubocop-rails', '~> 2.0', '>= 2.0.1'
 gem 'rubocop-performance'
 gem 'active_interaction', '~> 3.7'
 gem 'draper'
@@ -86,6 +86,6 @@ gem 'kaminari'
 gem 'pg_search'
 gem 'devise'
 gem 'activeadmin'
-gem 'chartkick'
+gem "chartkick", ">= 3.2.0"
 gem 'groupdate', git: 'https://github.com/yzgan/groupdate.git', branch: 'master'
 # gem 'groupdate', path: '../groupdate'

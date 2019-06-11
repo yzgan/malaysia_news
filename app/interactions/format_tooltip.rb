@@ -9,20 +9,20 @@ class FormatTooltip < ActiveInteraction::Base
 
   private
 
-    def partitioning_tooltips
-      words = tooltip.split(' ')
-      [].tap do |partition_words|
-        (words.size / length).times do
-          partition_words << words.slice!(0..length)
-        end
+  def partitioning_tooltips
+    words = tooltip.split(' ')
+    [].tap do |partition_words|
+      (words.size / length).times do
+        partition_words << words.slice!(0..length)
       end
     end
+  end
 
-    def injecting_newline_to(partition)
-      partition.map { |element| element.push(newline) }
-    end
+  def injecting_newline_to(partition)
+    partition.map { |element| element.push(newline) }
+  end
 
-    def newline
-      html ? '<br/>' : "\n"
-    end
+  def newline
+    html ? '<br/>' : "\n"
+  end
 end

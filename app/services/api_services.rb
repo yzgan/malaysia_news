@@ -13,9 +13,9 @@ class ApiServices
 
   private
 
-    def headers
-      {
-        Authorization: "bearer #{api_key}"
-      }
-    end
+  def headers
+    {
+      Authorization: "bearer #{api_key}"
+    }
+  end
 end
