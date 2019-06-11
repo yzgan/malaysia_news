@@ -28,7 +28,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
 
   private
 
-    def response_data
-      YAML.safe_load(File.open(Rails.root.join('lib', 'seeds', 'test', 'news_api_response.yml')))
-    end
+  def response_data
+    YAML.safe_load(File.open(Rails.root.join('lib', 'seeds', 'test', 'news_api_response.yml')))
+  end
 end

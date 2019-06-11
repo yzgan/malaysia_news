@@ -2,7 +2,7 @@ module Cleanable
   extend ActiveSupport::Concern
 
   included do
-    scope :aging, -> (limit) { where('created_at <= ?', limit) }
+    scope :aging, ->(limit) { where('created_at <= ?', limit) }
   end
 
   class_methods do
@@ -11,6 +11,7 @@ module Cleanable
     # Article.cleanup 2.year
     def cleanup(lifespan = 1.year)
       raise I18n.t('cleanup.invalid_argument') unless lifespan.is_a? ActiveSupport::Duration
+
       aging(lifespan.send(:ago)).destroy_all
     end
   end

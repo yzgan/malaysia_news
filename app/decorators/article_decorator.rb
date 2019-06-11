@@ -5,6 +5,7 @@ class ArticleDecorator < Draper::Decorator
 
   def recent_badge
     return unless recent?
+
     content_tag :span, nil, class: 'new badge btn-floating pulse'
   end
 
@@ -14,11 +15,13 @@ class ArticleDecorator < Draper::Decorator
 
   def url_to_image
     return unless object.valid_image_url?
+
     object.url_to_image
   end
 
   def tooltip
     return unless description
-    content_tag :p, FormatTooltip.run!(tooltip: object.description, html: true).html_safe, class: 'left-align'
+
+    content_tag :p, sanitize(FormatTooltip.run!(tooltip: object.description, html: true)), class: 'left-align'
   end
 end

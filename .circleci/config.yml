@@ -45,7 +45,7 @@ jobs:
             - vendor/bundle
       - run:
           name: Bundle Install
-          command: bundle check || bundle install --path vendor/bundle
+          command: bundle check || bundle install
       - save_cache:
           key: malaysia-news-bundle-v1-dependencies-{{ checksum "Gemfile.lock" }}
           paths:

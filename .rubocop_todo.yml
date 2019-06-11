@@ -6,6 +6,10 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
+AllCops:
+  Exclude:
+    - 'db/**/*'
+
 # Offense count: 4
 # Cop supports --auto-correct.
 # Configuration parameters: TreatCommentsAsGroupSeparators, Include.
@@ -182,3 +186,7 @@ Style/SymbolArray:
 # URISchemes: http, https
 Metrics/LineLength:
   Max: 290
+
+Metrics/AbcSize:
+  Exclude:
+    - 'test/**/*'
