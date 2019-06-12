@@ -10,18 +10,6 @@ class SearchesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Searches"
   end
 
-  test "creating a Search" do
-    visit searches_url
-    click_on "New Search"
-
-    fill_in "Status", with: @search.status
-    fill_in "Total results", with: @search.total_results
-    click_on "Create Search"
-
-    assert_text "Search was successfully created"
-    click_on "Back"
-  end
-
   test "updating a Search" do
     visit searches_url
     click_on "Edit", match: :first

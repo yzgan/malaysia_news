@@ -10,24 +10,11 @@ class ResourcesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Resources"
   end
 
-  test "creating a Resource" do
-    visit resources_url
-    click_on "New Resource"
-
-    fill_in "Name", with: @resource.name
-    fill_in "Resource", with: @resource.source_id
-    click_on "Create Resource"
-
-    assert_text "Resource was successfully created"
-    click_on "Back"
-  end
-
   test "updating a Resource" do
     visit resources_url
     click_on "Edit", match: :first
 
     fill_in "Name", with: @resource.name
-    fill_in "Resource", with: @resource.source_id
     click_on "Update Resource"
 
     assert_text "Resource was successfully updated"
