@@ -129,10 +129,15 @@ jobs:
 
       # run tests!
       - run:
-          name: run tests
+          name: run unit/function tests
           command: |
             mkdir /tmp/test-results
             bundle exec rake test
+
+      - run:
+          name: run system tests
+          command: |
+            bundle exec rake test:system
 
       # collect reports
       - store_test_results:
