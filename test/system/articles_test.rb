@@ -10,23 +10,6 @@ class ArticlesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Articles"
   end
 
-  test "creating a Article" do
-    visit articles_url
-    click_on "New Article"
-
-    fill_in "Author", with: @article.author
-    fill_in "Content", with: @article.content
-    fill_in "Description", with: @article.description
-    fill_in "Published at", with: @article.published_at
-    fill_in "Search", with: @article.search_id
-    fill_in "Title", with: @article.title
-    fill_in "Url", with: @article.url
-    fill_in "Url to image", with: @article.url_to_image
-    click_on "Create Article"
-
-    assert_text "Article was successfully created"
-    click_on "Back"
-  end
 
   test "updating a Article" do
     visit articles_url
@@ -35,9 +18,8 @@ class ArticlesTest < ApplicationSystemTestCase
     fill_in "Author", with: @article.author
     fill_in "Content", with: @article.content
     fill_in "Description", with: @article.description
-    fill_in "Published at", with: @article.published_at
     fill_in "Search", with: @article.search_id
-    fill_in "Title", with: @article.title
+    fill_in "Title", with: @article.title + '-updated'
     fill_in "Url", with: @article.url
     fill_in "Url to image", with: @article.url_to_image
     click_on "Update Article"
