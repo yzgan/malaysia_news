@@ -1,9 +1,9 @@
 class ClassifyText < ActiveInteraction::Base
-  string :text
-
-  validates :text, presence: true, length: { minimum: 20 }
+  record :article
 
   def execute
-    Google::GoogleCloudLanguage.new.classify text
+    response = Google::GoogleCloudLanguage.new.classify article.content
+    category = response.to_h.dig(:categories, 0, :name)
+    article.update(category: category)
   end
 end

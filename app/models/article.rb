@@ -7,6 +7,9 @@ class Article < ApplicationRecord
   belongs_to :resource
 
   validates :title, presence: true, uniqueness: true
+  validates :content, presence: true, length: { minimum: 20 }
+
+  after_create_commit :classify_article
 
   def recent?
     Time.current - created_at < 2.hours
@@ -20,5 +23,9 @@ class Article < ApplicationRecord
     return false if url_to_image.nil?
 
     url_to_image.match? URI.regexp(%w[http https])
+  end
+
+  def classify_article
+    TextClassificationJob.perform_later self
   end
 end
