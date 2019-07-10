@@ -1,4 +1,5 @@
 require 'test_helper'
+<<<<<<< HEAD
 require 'minitest/mock'
 
 class TextClassificationJobTest < ActiveJob::TestCase
@@ -33,4 +34,11 @@ class TextClassificationJobTest < ActiveJob::TestCase
     end
     assert_equal sample_data.dig(:categories, 0, :name), @new_article.reload.category
   end
+=======
+
+class TextClassificationJobTest < ActiveJob::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+>>>>>>> add job iteraction and service for text classification
 end
