@@ -48,3 +48,17 @@ Deploy or push image to docker repo with `latest` tag
   docker-compose push
 ```
 Checkout [docker hub](https://cloud.docker.com/repository/docker/ganyizhong/malaysia_news/general) to view image push and autobuild status.
+
+## Google Cloud
+### Text Classification
+Google Cloud Language API is used for text classification in article. 
+
+In order to use the API, 
+1. Create new project in google cloud console.
+1. Navigate to `IAM & admin` to create new service account.
+1. Download credential `json` file to local machine.
+1. Export `GOOGLE_APPLICATION_CREDENTIALS` environment variable to the credential json file path in local machine.
+
+```
+export GOOGLE_APPLICATION_CREDENTIALS="/path/to/credential.json"
+```
