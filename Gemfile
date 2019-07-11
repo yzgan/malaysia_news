@@ -23,7 +23,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -90,3 +90,4 @@ gem "chartkick", ">= 3.2.0"
 gem 'groupdate', git: 'https://github.com/yzgan/groupdate.git', branch: 'master'
 # gem 'groupdate', path: '../groupdate'
 gem "google-cloud-language"
+gem 'sidekiq'
