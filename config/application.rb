@@ -18,6 +18,5 @@ module MalaysiaNewsApp
 
     config.time_zone = 'Kuala Lumpur'
     config.active_record.default_timezone = :local
-    config.active_job.queue_adapter = :sidekiq
   end
 end
