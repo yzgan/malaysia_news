@@ -89,3 +89,4 @@ gem 'activeadmin'
 gem "chartkick", ">= 3.2.0"
 gem 'groupdate', git: 'https://github.com/yzgan/groupdate.git', branch: 'master'
 # gem 'groupdate', path: '../groupdate'
+gem "google-cloud-language"
