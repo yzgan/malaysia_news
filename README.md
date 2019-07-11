@@ -51,14 +51,18 @@ Checkout [docker hub](https://cloud.docker.com/repository/docker/ganyizhong/mala
 
 ## Google Cloud
 ### Text Classification
-Google Cloud Language API is used for text classification in article. 
+Google Cloud Language API is used for text classification in article content. 
+
+Important Notes
+> Credential json file contains private information and was intended to be used in Google Cloud environment.
+> Do not commit and push to public repo and 3rd party cloud services.
 
 In order to use the API, 
 1. Create new project in google cloud console.
 1. Navigate to `IAM & admin` to create new service account.
-1. Download credential `json` file to local machine.
-1. Export `GOOGLE_APPLICATION_CREDENTIALS` environment variable to the credential json file path in local machine.
-
-```
-export GOOGLE_APPLICATION_CREDENTIALS="/path/to/credential.json"
+1. Download credential `json` file
+1. Copy credential json content and paste to `rails credentials` with converted `yml` format.
+1. Use the following command to edit rails credentials.
+```sh
+EDITOR="code --wait" rails credentials:edit
 ```
