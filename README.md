@@ -66,3 +66,22 @@ In order to use the API,
 ```sh
 EDITOR="code --wait" rails credentials:edit
 ```
+
+## Developer
+### database.yml
+Each local machine has local database setup for e.g. windows ubuntu subsystem for postgres.
+
+To skip tracking local tracked file, 
+```sh
+git update-index --skip-worktree <file>
+```
+To view files with skipped flagged,
+```sh
+git ls-files -v
+```
+Any files skipped will have character `S` marked in the result.
+
+To undo skipped worktree
+```sh
+git update-index --no-skip-worktree <file>
+```

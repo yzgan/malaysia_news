@@ -26,6 +26,6 @@ class Article < ApplicationRecord
   end
 
   def classify_article
-    ClassifyText.run! self
+    ClassifyText.run! article: self
   end
 end
