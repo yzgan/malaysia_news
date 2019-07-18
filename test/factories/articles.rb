@@ -6,7 +6,7 @@ FactoryBot.define do
     url           { Faker::Internet.url }
     url_to_image  { Faker::Internet.url }
     published_at  { DateTime.current }
-    content       { Faker::Lorem.paragraph 3 }
+    content       { Faker::Lorem.paragraph 20 }
     resource
     search
   end
