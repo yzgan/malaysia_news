@@ -25,3 +25,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore redis db
+dump.rdb
+
+# Ignore windows local postgres database configuration
+/config/database.yml

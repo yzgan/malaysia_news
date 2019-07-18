@@ -1,9 +1,11 @@
 class ClassifyText < ActiveInteraction::Base
   record :article
 
+  set_callback :execute, :before do
+    errors.merge!(article.errors) unless article.valid?
+  end
+
   def execute
-    response = Google::GoogleCloudLanguage.new.classify article.content
-    category = response.to_h.dig(:categories, 0, :name)
-    article.update(category: category)
+    TextClassificationJob.perform_later article
   end
 end

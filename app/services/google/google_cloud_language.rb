@@ -2,7 +2,7 @@
 
 # app/services/google/google_cloud_language.rb
 module Google
-  class GoogleCloudLanguage
+  class GoogleCloudLanguage < ApplicationService
     attr_reader :response
 
     def initialize(credential: Rails.application.credentials.google[:gcloud])

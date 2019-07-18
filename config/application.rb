@@ -18,5 +18,6 @@ module MalaysiaNewsApp
 
     config.time_zone = 'Kuala Lumpur'
     config.active_record.default_timezone = :local
+    config.external_application_services = true
   end
 end

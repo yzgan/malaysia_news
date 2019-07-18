@@ -1,4 +1,4 @@
-class ApiServices
+class ApiServices < ApplicationService
   attr_reader :api_key, :api
 
   def initialize(api_service, api_key)
