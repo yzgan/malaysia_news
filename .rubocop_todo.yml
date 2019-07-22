@@ -190,3 +190,6 @@ Metrics/LineLength:
 Metrics/AbcSize:
   Exclude:
     - 'test/**/*'
+
+Layout/EndOfLine:
+  EnforcedStyle: lf

@@ -10,7 +10,6 @@ class ArticlesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Articles"
   end
 
-
   test "updating a Article" do
     visit articles_url
     click_on "Edit", match: :first
