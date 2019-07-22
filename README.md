@@ -85,3 +85,16 @@ To undo skipped worktree
 ```sh
 git update-index --no-skip-worktree <file>
 ```
+### CRLF issue in windows
+when running `rubocop` in windows environment, probably would complain the following:
+```
+Layout/EndOfLine: Carriage return character detected.
+```
+caused by EOL rendered different in different OS.
+
+try the following commands to resolve the issue
+```sh
+git config core.autocrlf false 
+git rm --cached -r . 
+git reset --hard
+```
