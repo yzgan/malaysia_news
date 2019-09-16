@@ -64,6 +64,11 @@ jobs:
           paths:
             - ~/.cache/yarn
 
+      # Chromedriver check
+      # - run:
+      #   name: Chromedriver version
+      #   command: rails webdrivers:chromedriver:update
+
       # Wait for DB
       - run:
           name: Wait for DB
