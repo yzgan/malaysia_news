@@ -4,9 +4,6 @@ require 'rails/test_help'
 require 'database_cleaner'
 require 'capybara/rails'
 require 'capybara/minitest'
-require 'webdrivers'
-
-Webdrivers::Chromedriver.required_version = '2.38.552518'
 
 class ActionDispatch::IntegrationTest
   # Make the Capybara DSL available in all integration tests
