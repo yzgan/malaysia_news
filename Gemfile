@@ -58,7 +58,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  # gem 'chromedriver-helper'
   gem 'database_cleaner'
   gem 'shoulda', '~> 3.5'
   gem 'shoulda-matchers', '~> 2.0'
@@ -91,3 +91,4 @@ gem 'groupdate', git: 'https://github.com/yzgan/groupdate.git', branch: 'master'
 # gem 'groupdate', path: '../groupdate'
 gem "google-cloud-language"
 gem 'sidekiq'
+gem 'webdrivers', '~> 4.0'
