@@ -91,3 +91,4 @@ gem 'groupdate', git: 'https://github.com/yzgan/groupdate.git', branch: 'master'
 # gem 'groupdate', path: '../groupdate'
 gem "google-cloud-language"
 gem 'sidekiq'
+gem 'webdrivers', '~> 4.0'

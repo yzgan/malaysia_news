@@ -4,6 +4,7 @@ require 'rails/test_help'
 require 'database_cleaner'
 require 'capybara/rails'
 require 'capybara/minitest'
+require 'webdrivers'
 
 class ActionDispatch::IntegrationTest
   # Make the Capybara DSL available in all integration tests
