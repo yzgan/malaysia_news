@@ -19,7 +19,10 @@ module MalaysiaNewsApp
     config.time_zone = 'Kuala Lumpur'
     config.active_record.default_timezone = :local
     config.external_application_services = true
-    config.dsn = 'https://32cbd8b9c85340569b21a3934069555c:4d6cf83338c24b1880dbace4b44a669d@sentry.io/1877080'
     config.filter_parameters << :password
   end
+end
+
+Raven.configure do |config|
+  config.dsn = 'https://32cbd8b9c85340569b21a3934069555c:4d6cf83338c24b1880dbace4b44a669d@sentry.io/1877080'
 end
