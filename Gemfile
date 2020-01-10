@@ -80,7 +80,7 @@ gem 'rubocop-rails', '~> 2.0', '>= 2.0.1'
 gem 'rubocop-performance'
 gem 'active_interaction', '~> 3.7'
 gem 'draper'
-gem 'tunemygc'
+# gem 'tunemygc'
 gem 'newrelic_rpm'
 gem 'kaminari'
 gem 'pg_search'
@@ -92,3 +92,4 @@ gem 'groupdate', git: 'https://github.com/yzgan/groupdate.git', branch: 'master'
 gem "google-cloud-language"
 gem 'sidekiq'
 gem 'webdrivers', '~> 4.0'
+gem "sentry-raven"
