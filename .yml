@@ -1,0 +1,2 @@
+- name: Post Slack messages
+  uses: pullreminders/slack-action@v1.0.7
