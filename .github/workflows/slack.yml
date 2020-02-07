@@ -15,28 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Check syntax
-        run: |
-          yarn install
-          yarn lint
-      - name: Slack notification FAILED
-        uses: Ilshidur/action-slack@master
-        if: failure()
+      - name: Notify slack
         env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_AVATAR: sender # optional: repository, sender or ImageURL
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        uses: pullreminders/slack-action@master
         with:
-          args: "Lint checks *FAILED* \nfrom {{ GITHUB_ACTOR }} at {{ GITHUB_REPOSITORY }}"
-
-      - name: Slack notification SUCCESS
-        uses: Ilshidur/action-slack@master
-        if: success()
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        with:
-          args: "Lint checks *SUCCESSFUL!* \nfrom {{ GITHUB_ACTOR }} at {{ GITHUB_REPOSITORY }}"
+          args: '{\"channel\":\"C1234567890\",\"text\":\"Hello world\"}'
