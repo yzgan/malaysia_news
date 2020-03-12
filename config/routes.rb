@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'loaderio-6ffcfe15a9f1d94c9a1d5b837ee9abf1', to: 'home#test'
   get 'search', to: 'home#search', as: 'query'
   get 'top-headlines', to: 'home#top_headlines', as: 'top_headlines'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
