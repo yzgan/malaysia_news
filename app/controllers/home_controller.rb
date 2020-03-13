@@ -15,6 +15,10 @@ class HomeController < ApplicationController
     render json: NewsApiServices.new.top_headlines
   end
 
+  def test
+    render plain: 'loaderio-6ffcfe15a9f1d94c9a1d5b837ee9abf1'
+  end
+
   private
 
   def set_datetime_and_year
