@@ -16,7 +16,7 @@ class HomeController < ApplicationController
   end
 
   def test
-    render plain: 'loaderio-6ffcfe15a9f1d94c9a1d5b837ee9abf1'
+    render plain: ENV['LOADERIO_TOKEN']
   end
 
   private
