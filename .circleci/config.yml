@@ -38,16 +38,16 @@ jobs:
       # Bundle Install dependencies
       - restore_cache:
           keys:
-            - malaysia-news-bundle-v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - malaysia-news-bundle-v2-dependencies-{{ checksum "Gemfile.lock" }}
             # fallback to using the latest cache if no exact match is found
-            - malaysia-news-bundle-v1-dependencies-
+            - malaysia-news-bundle-v2-dependencies-
           paths:
             - vendor/bundle
       - run:
           name: Bundle Install
           command: bundle check || bundle install
       - save_cache:
-          key: malaysia-news-bundle-v1-dependencies-{{ checksum "Gemfile.lock" }}
+          key: malaysia-news-bundle-v2-dependencies-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
 
@@ -114,9 +114,9 @@ jobs:
       # Bundle Install dependencies
       - restore_cache:
           keys:
-            - malaysia-news-bundle-v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - malaysia-news-bundle-v2-dependencies-{{ checksum "Gemfile.lock" }}
             # fallback to using the latest cache if no exact match is found
-            - malaysia-news-bundle-v1-dependencies-
+            - malaysia-news-bundle-v2-dependencies-
           paths:
             - vendor/bundle
       - run:
