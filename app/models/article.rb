@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
   include Cleanable
-  include PgSearch
+  include PgSearch::Model
   pg_search_scope :search_by_title, against: :title
 
   belongs_to :search

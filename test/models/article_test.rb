@@ -20,7 +20,7 @@ class ArticleTest < ActiveSupport::TestCase
     should validate_uniqueness_of :title
   end
 
-  should include PgSearch
+  should include PgSearch::Model
 
   test 'valid article' do
     assert @article_build.valid?

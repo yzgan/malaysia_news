@@ -10,7 +10,7 @@ module CleanableTest
   end
 
   def test_includes_cleanable_module
-    described_class.must_include Cleanable
+    _(described_class).must_include Cleanable
   end
 
   def test_cleanup

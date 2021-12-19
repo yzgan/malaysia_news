@@ -1,7 +1,7 @@
 class TextClassificationJob < ApplicationJob
   queue_as :default
 
-  discard_on Google::Gax::RetryError
+  discard_on Google::Cloud::Error
 
   def perform(article)
     response = Google::GoogleCloudLanguage.new.classify article.content
