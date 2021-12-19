@@ -93,3 +93,4 @@ gem "google-cloud-language"
 gem 'sidekiq'
 gem 'webdrivers', '~> 4.0'
 gem "sentry-raven"
+gem 'mimemagic', '~> 0.4.3'
