@@ -5,12 +5,14 @@ module Google
   class GoogleCloudLanguage < ApplicationService
     attr_reader :response
 
-    def initialize(credential: Rails.application.credentials.google[:gcloud])
-      @language = Google::Cloud::Language.new(credentials: credential)
+    def initialize
+      @client = ::Google::Cloud::Language.language_service
     end
 
     def classify(text)
-      @response = @language.classify_text content: text, type: :PLAIN_TEXT
+      @request = ::Google::Cloud::Language::V1::ClassifyTextRequest.new document: { type: :PLAIN_TEXT, content: text }
+      @response = @client.classify_text @request
+      @response.categories&.first&.name
     end
   end
 end
