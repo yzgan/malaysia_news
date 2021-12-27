@@ -12,7 +12,6 @@ module Google
     def classify(text)
       @request = ::Google::Cloud::Language::V1::ClassifyTextRequest.new document: { type: :PLAIN_TEXT, content: text }
       @response = @client.classify_text @request
-      @response.categories&.first&.name
     end
   end
 end
