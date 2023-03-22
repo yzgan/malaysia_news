@@ -1,0 +1,18 @@
+databases:
+  - name: malaysia_news_app
+    databaseName: malaysia_news_app
+    user: malaysia_news_app
+
+services:
+  - type: web
+    name: malaysia_news_app
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: malaysia_news_app
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
