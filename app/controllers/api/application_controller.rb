@@ -15,5 +15,9 @@ module Api
             errors: resource.errors,
         }, status: :bad_request
     end
+
+    def current_user
+      current_api_v1_user
+    end
   end
 end

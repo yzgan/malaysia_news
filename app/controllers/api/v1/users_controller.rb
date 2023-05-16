@@ -11,7 +11,7 @@ module Api
       end
 
       def test
-        render json: { message: 'success' }
+        render json: current_user
       end
     end
   end
