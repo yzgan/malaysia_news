@@ -1,7 +1,6 @@
 module Api
   class ApplicationController < ActionController::API
     respond_to :json
-    skip_forgery_protection
 
     def render_resource(resource)
       if resource.errors.empty?

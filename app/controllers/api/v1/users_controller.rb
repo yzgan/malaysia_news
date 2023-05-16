@@ -1,7 +1,7 @@
 module Api
   module V1
     class UsersController < ApplicationController
-      before_action :authenticate_user!
+      before_action :authenticate_api_v1_user!
 
       def sign_in
         render json: { message: 'success' }
