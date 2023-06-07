@@ -18,9 +18,17 @@ class NewsApiServices < ApiServices
     response
   end
 
+  def search(keyword = 'malaysia', language: 'en')
+    get search_uri, language: language, q: keyword
+  end
+
   private
 
   def top_headlines_uri
     BASE_URI + 'top-headlines'
+  end
+
+  def search_uri
+    BASE_URI + 'everything'
   end
 end
