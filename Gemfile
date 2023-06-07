@@ -6,7 +6,7 @@ ruby '3.0.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6'
 # Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
+gem 'pg', '~> 1.4', '>= 1.4.6'
 # Use Puma as the app server
 gem 'puma', '>= 5.5.1'
 # Use SCSS for stylesheets
@@ -42,6 +42,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'minitest-around'
+  gem 'debug'
 end
 
 group :development do
@@ -94,3 +95,5 @@ gem 'sidekiq'
 gem 'webdrivers', '~> 4.0'
 gem "sentry-raven"
 gem 'mimemagic', '~> 0.4.3'
+gem 'devise-jwt'
+gem 'rack-cors'

@@ -61,5 +61,5 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # option to call external services defined in services directory
-  config.external_application_services = false
+  config.external_application_services = true
 end

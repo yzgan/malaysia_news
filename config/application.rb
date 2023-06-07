@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module MalaysiaNewsApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.2
+    config.load_defaults 6.1
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
@@ -21,8 +21,4 @@ module MalaysiaNewsApp
     config.external_application_services = true
     config.filter_parameters << :password
   end
-end
-
-Raven.configure do |config|
-  config.dsn = 'https://32cbd8b9c85340569b21a3934069555c:4d6cf83338c24b1880dbace4b44a669d@sentry.io/1877080'
 end
