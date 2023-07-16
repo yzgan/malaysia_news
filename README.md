@@ -1,9 +1,6 @@
 [![CircleCI](https://circleci.com/gh/yzgan/malaysia_news.svg?style=svg)](https://circleci.com/gh/yzgan/malaysia_news)
 # Malaysia News 
 
-## Hosted in render.com
-https://malaysia-news-app.onrender.com
-
 Place to view most recent news from Malaysia.
 
 > Powered by NewsApi.org

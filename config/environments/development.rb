@@ -62,4 +62,8 @@ Rails.application.configure do
 
   # option to call external services defined in services directory
   config.external_application_services = true
+
+  # point to demo hostname
+  # using cloudflare tunnel for direct host from localhost
+  config.hosts << "demo.teampharmacy2u.com"
 end
