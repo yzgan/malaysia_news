@@ -8,7 +8,7 @@ module Api
 
       def auth_options
         # { scope: resource_name, recall: "#{controller_path}#new" }
-        {}
+        {  store: false }
       end
 
       private
