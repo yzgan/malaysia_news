@@ -308,4 +308,11 @@ Devise.setup do |config|
     ]
     jwt.expiration_time = 30.minutes.to_i
   end
+
+  config.warden do |manager|
+    manager.strategies.add :jwt, Devise::Strategies::Jwt
+    manager.default_strategies(scope: :api_v1_user).unshift :jwt
+  end
+
+  Devise::Strategies::Authenticatable.prepend Devise::Strategies::MonkeyPatchAuthenticatable
 end

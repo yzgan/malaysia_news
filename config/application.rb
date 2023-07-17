@@ -20,5 +20,6 @@ module MalaysiaNewsApp
     config.active_record.default_timezone = :local
     config.external_application_services = true
     config.filter_parameters << :password
+    config.autoload_paths << "#{root}/lib"
   end
 end

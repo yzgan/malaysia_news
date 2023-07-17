@@ -5,10 +5,16 @@ module Api
     class SessionsController < Devise::SessionsController
       respond_to :json
       skip_forgery_protection
+      before_action :configure_permitted_parameters
+
+      protected
 
       def auth_options
-        # { scope: resource_name, recall: "#{controller_path}#new" }
-        {  store: false }
+        super.merge({ store: false })
+      end
+  
+      def configure_permitted_parameters
+        devise_parameter_sanitizer.permit(:sign_in)
       end
 
       private
